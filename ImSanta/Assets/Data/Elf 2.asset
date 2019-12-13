@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae1b3dc0abcebf46b56db3ad45ed4d4, type: 3}
+  m_Name: Elf 2
+  m_EditorClassIdentifier: 
+  _name: Elf 2
+  question: Ipsum Lorem
+  positiveAnswer: Yeah...
+  negativeAnswer: Yeah...
+  avatar: {fileID: -2661456039359935196, guid: 7871d32b2e24d704bb39420533b81646, type: 3}
+  border1: {r: 0.20000002, g: 0.28627452, b: 0.454902, a: 1}
+  border2: {r: 0.06666667, g: 0.09411766, b: 0.15294118, a: 1}
+  _kids: 0
+  _elves: 0
+  _money: 0

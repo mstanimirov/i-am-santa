@@ -27,4 +27,16 @@ public class CardData : MonoBehaviour
 
     }
 
+    public void SetData(Card data) {
+
+        avatar.sprite = data.avatar;
+
+        borderSprite1.color = data.border1;
+        borderSprite2.color = data.border2;
+
+        positiveAnswer.SetText(data.positiveAnswer);
+        negativeAnswer.SetText(data.negativeAnswer);
+
+    }
+
 }

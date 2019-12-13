@@ -22,6 +22,8 @@ public class CardController : MonoBehaviour
     private Vector3 initialPos;
 
     private InputMaster inputMaster;
+
+    private CardData cardData;
     private CardAnimator cardAnimator;
 
     #endregion
@@ -39,6 +41,8 @@ public class CardController : MonoBehaviour
     {
 
         inputMaster = new InputMaster();
+
+        cardData = GetComponent<CardData>();
         cardAnimator = GetComponent<CardAnimator>();
 
     }
@@ -203,6 +207,12 @@ public class CardController : MonoBehaviour
 
         graphic.transform.position = initialPos;
         graphic.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+
+    }
+
+    public void SetCardData(Card data) {
+
+        cardData.SetData(data);
 
     }
 

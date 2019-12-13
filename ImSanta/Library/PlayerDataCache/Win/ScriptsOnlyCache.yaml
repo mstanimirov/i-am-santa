@@ -78,33 +78,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10018}
     - Class: 114
-      Script: {instanceID: 10478}
+      Script: {instanceID: 10430}
     - Class: 114
-      Script: {instanceID: 10506}
+      Script: {instanceID: 10480}
     - Class: 114
-      Script: {instanceID: 10562}
+      Script: {instanceID: 10508}
     - Class: 114
-      Script: {instanceID: 11292}
+      Script: {instanceID: 10564}
     - Class: 114
-      Script: {instanceID: 11308}
+      Script: {instanceID: 11152}
     - Class: 114
-      Script: {instanceID: 11512}
+      Script: {instanceID: 11296}
     - Class: 114
-      Script: {instanceID: 11538}
+      Script: {instanceID: 11312}
     - Class: 114
-      Script: {instanceID: 11614}
+      Script: {instanceID: 11516}
     - Class: 114
-      Script: {instanceID: 11636}
+      Script: {instanceID: 11542}
     - Class: 114
-      Script: {instanceID: 11820}
+      Script: {instanceID: 11618}
     - Class: 114
-      Script: {instanceID: 12076}
+      Script: {instanceID: 11640}
     - Class: 114
-      Script: {instanceID: 17594}
+      Script: {instanceID: 11696}
     - Class: 114
-      Script: {instanceID: 20832}
+      Script: {instanceID: 11826}
     - Class: 114
-      Script: {instanceID: 30624}
+      Script: {instanceID: 12082}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -326,6 +326,12 @@ ScriptsOnlyBuild:
     className: InputSystemUIInputModule
   - hash:
       serializedVersion: 2
+      Hash: f087171ac5f1d1359d0fb5e6575ccf97
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CardData
+  - hash:
+      serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -362,7 +368,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 39f250c579a11e41ccd7404f54f4ee77
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -488,6 +494,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 2d974affa86f68716ddd7515b8f11882
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DeckController
+  - hash:
+      serializedVersion: 2
       Hash: 295852e83016219fe0ab9a38fc36f74a
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem
@@ -594,6 +606,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: 787e67da469629de6982625b70e37098
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Card
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -714,24 +732,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 787e67da469629de6982625b70e37098
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Card
-  - hash:
-      serializedVersion: 2
-      Hash: f087171ac5f1d1359d0fb5e6575ccf97
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CardData
-  - hash:
-      serializedVersion: 2
-      Hash: 2d974affa86f68716ddd7515b8f11882
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DeckController
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
