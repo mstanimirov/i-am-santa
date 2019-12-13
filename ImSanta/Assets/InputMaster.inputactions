@@ -1,0 +1,64 @@
+{
+    "name": "InputMaster",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "b5628568-a2a0-4968-ad80-39622fe72741",
+            "actions": [
+                {
+                    "name": "ActionP",
+                    "type": "Button",
+                    "id": "ea8288a3-6139-4947-8a05-a11e3c3db86e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ActionS",
+                    "type": "Button",
+                    "id": "4235930f-7125-4f94-b83d-c7ce15961931",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "663b134f-e78a-4826-8ad4-879f2192912e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Mouse",
+                    "action": "ActionP",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c7f04d8-df31-4502-8fff-a3c0e88d81d8",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Mouse",
+                    "action": "ActionS",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Mouse",
+            "bindingGroup": "Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
