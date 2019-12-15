@@ -11,13 +11,15 @@ public class DeckController : MonoBehaviour
     public Transform cardHolder;
     public CardController cardPrefab;
 
+    [Header("Card Settings: ")]
+    public Card[] testCards;
     public Queue<CardController> cards;
 
     public event System.Action OnCardReturn;
 
     #region Private Vars
 
-
+    private int previousIndex = 0;
 
     #endregion
 
@@ -39,14 +41,27 @@ public class DeckController : MonoBehaviour
 
     }
 
+    public void ShowFirstCard()
+    {
+
+        //Animation event function
+        GameController.instance.ShowNewCard();
+
+    }
+
     public CardController GetCard(Vector3 position, Quaternion rotation) {
 
         CardController cardToSpawn = cards.Dequeue();
 
         cardToSpawn.gameObject.SetActive(true);
 
-        cardToSpawn.transform.localPosition = position;
         cardToSpawn.transform.rotation = rotation;
+        cardToSpawn.transform.localPosition = position;
+
+        cardToSpawn.data.Set(GetData());
+
+        Gameplay.instance.SetCardName(cardToSpawn.data.GetName());
+        Gameplay.instance.SetQuestion(cardToSpawn.data.GetQuestion());
 
         return cardToSpawn;
 
@@ -61,13 +76,7 @@ public class DeckController : MonoBehaviour
 
         OnCardReturn?.Invoke();
 
-    }
-
-    public void ShowFirstCard() {
-
-        GameController.instance.ShowNewCard();
-
-    }
+    }    
 
     private void FillCardPool(int amount) {
 
@@ -81,6 +90,20 @@ public class DeckController : MonoBehaviour
             cards.Enqueue(cardToAdd);
 
         }
+
+    }
+
+    private Card GetData()
+    {
+
+        int newIndex = Random.Range(0, testCards.Length);
+
+        while (newIndex == previousIndex)
+            newIndex = Random.Range(0, testCards.Length);
+
+        previousIndex = newIndex;
+
+        return testCards[previousIndex];
 
     }
 

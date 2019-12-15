@@ -2,6 +2,12 @@
 
 public class CardController : MonoBehaviour
 {
+    
+    [HideInInspector]
+    public CardData data;
+
+    [HideInInspector]
+    public CardState cardState;
 
     [Header("General Settings:")]
     public float speed;
@@ -12,8 +18,9 @@ public class CardController : MonoBehaviour
     public GameObject positiveAnsw;
     public GameObject negativeAnsw;
 
-    [HideInInspector]
-    public CardState cardState;
+    public event System.Action OnSwipeEnd;
+    public event System.Action OnSwipeLeft;
+    public event System.Action OnSwipeRight;
 
     #region Private Vars
 
@@ -21,9 +28,6 @@ public class CardController : MonoBehaviour
     private Vector3 targetPos;
     private Vector3 initialPos;
 
-    private InputMaster inputMaster;
-
-    private CardData cardData;
     private CardAnimator cardAnimator;
 
     #endregion
@@ -40,9 +44,7 @@ public class CardController : MonoBehaviour
     private void Awake()
     {
 
-        inputMaster = new InputMaster();
-
-        cardData = GetComponent<CardData>();
+        data = GetComponent<CardData>();
         cardAnimator = GetComponent<CardAnimator>();
 
     }
@@ -140,51 +142,44 @@ public class CardController : MonoBehaviour
 
     }
 
-    private void CheckPosition()
+    public int CheckPosition()
     {
 
-        switch (Direction()) {
+        if (graphic.position.x < -0.5f)
+        {
 
-            case 0:
+            if (!positiveAnsw.activeSelf)
+                positiveAnsw.SetActive(true);
 
-                if (positiveAnsw.activeSelf)
-                    positiveAnsw.SetActive(false);
+            OnSwipeLeft?.Invoke();
 
-                if (negativeAnsw.activeSelf)
-                    negativeAnsw.SetActive(false);
+            return -1;
 
-                break;
+        }
+        else if (graphic.position.x > 0.5f) {
 
-            case 1:
+            if (!negativeAnsw.activeSelf)
+                negativeAnsw.SetActive(true);
 
-                if (!negativeAnsw.activeSelf)
-                    negativeAnsw.SetActive(true);
+            OnSwipeRight?.Invoke();
 
-                break;
-
-            case -1:
-
-                if (!positiveAnsw.activeSelf)
-                    positiveAnsw.SetActive(true);
-
-                break;
+            return 1;
 
         }
 
-    }
+        if (positiveAnsw.activeSelf)
+            positiveAnsw.SetActive(false);
 
-    #region Card Interaction
+        if (negativeAnsw.activeSelf)
+            negativeAnsw.SetActive(false);
 
-    public int Direction() {
-
-        if (graphic.transform.position.x < -0.5f)
-            return -1;
-        else if (graphic.transform.position.x > 0.5f)
-            return 1;
+        OnSwipeEnd?.Invoke();
 
         return 0;
 
     }
+
+    #region Card Interaction
 
     public void FlipCard()
     {
@@ -207,12 +202,6 @@ public class CardController : MonoBehaviour
 
         graphic.transform.position = initialPos;
         graphic.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
-
-    }
-
-    public void SetCardData(Card data) {
-
-        cardData.SetData(data);
 
     }
 

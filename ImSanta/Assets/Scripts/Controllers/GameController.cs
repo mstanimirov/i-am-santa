@@ -7,11 +7,7 @@ public class GameController : MonoBehaviour
 
     public static GameController instance;
 
-    public Card[] testData;
-
     #region Private Vars
-
-    private int previousIndex;
 
     private InputMaster inputManager;
 
@@ -36,6 +32,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
 
+        deckController = DeckController.instance;
 
     }
 
@@ -61,7 +58,7 @@ public class GameController : MonoBehaviour
 
     public void ChooseAnswer() {
 
-        switch (activeCard.Direction()) {
+        switch (activeCard.CheckPosition()) {
 
             case 0:
 
@@ -85,18 +82,7 @@ public class GameController : MonoBehaviour
 
     public void ShowNewCard() {
 
-        activeCard = DeckController.instance.GetCard(Vector3.zero, Quaternion.identity);
-
-        int newIndex = Random.Range(0, testData.Length);
-        while (newIndex == previousIndex) {
-
-            newIndex = Random.Range(0, testData.Length);
-
-        }
-
-        previousIndex = newIndex;
-
-        activeCard.SetCardData(testData[previousIndex]);
+        activeCard = deckController.GetCard(Vector3.zero, Quaternion.identity);
         activeCard.FlipCard();
 
     }

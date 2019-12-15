@@ -4,6 +4,7 @@ using TMPro;
 public class CardData : MonoBehaviour
 {
 
+    [HideInInspector]
     public Card cardData;
 
     public SpriteRenderer avatar;
@@ -14,8 +15,29 @@ public class CardData : MonoBehaviour
     public TextMeshProUGUI positiveAnswer;
     public TextMeshProUGUI negativeAnswer;
 
+    #region Getters/Setters
+
+    public string GetName() => cardData._name;
+
+    public string GetQuestion() => cardData.question;
+
+    #endregion
+
     private void Start()
     {
+
+        
+
+    }
+
+    public void Set(Card data) {
+
+        cardData = data;
+        OnDataChanged();
+
+    }
+
+    private void OnDataChanged() {
 
         avatar.sprite = cardData.avatar;
 
@@ -24,18 +46,6 @@ public class CardData : MonoBehaviour
 
         positiveAnswer.SetText(cardData.positiveAnswer);
         negativeAnswer.SetText(cardData.negativeAnswer);
-
-    }
-
-    public void SetData(Card data) {
-
-        avatar.sprite = data.avatar;
-
-        borderSprite1.color = data.border1;
-        borderSprite2.color = data.border2;
-
-        positiveAnswer.SetText(data.positiveAnswer);
-        negativeAnswer.SetText(data.negativeAnswer);
 
     }
 

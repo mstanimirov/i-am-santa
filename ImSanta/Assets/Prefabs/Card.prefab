@@ -1418,9 +1418,9 @@ GameObject:
   - component: {fileID: 3875666559281648185}
   - component: {fileID: 1326379836}
   - component: {fileID: 564459010785393597}
-  - component: {fileID: 5968240671769321870}
-  - component: {fileID: 1326379835}
+  - component: {fileID: 2104461034349136605}
   - component: {fileID: 6452461676452609171}
+  - component: {fileID: 1326379835}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -1515,7 +1515,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 14, y: 12}
   m_EdgeRadius: 0
---- !u!114 &5968240671769321870
+--- !u!114 &2104461034349136605
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1527,29 +1527,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7012a884218a50944b45159ddd003636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 11400000, guid: bcec7a833c6d8ae43b6e250e5c606462, type: 2}
+  cardData: {fileID: 0}
   avatar: {fileID: 3747337638236000421}
   borderSprite1: {fileID: 3747337637527175269}
   borderSprite2: {fileID: 3747337639047233037}
   positiveAnswer: {fileID: 1310618626}
   negativeAnswer: {fileID: 2111001549}
---- !u!114 &1326379835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3747337637817959717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b520807c10db94e4f8a364482b1fe43e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  graphic: {fileID: 3747337638802480929}
-  positiveAnsw: {fileID: 499861652}
-  negativeAnsw: {fileID: 102962791}
-  cardState: 0
 --- !u!114 &6452461676452609171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1562,6 +1545,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768487cba69d31144b04fdcbf00fd389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1326379835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3747337637817959717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b520807c10db94e4f8a364482b1fe43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardState: 0
+  speed: 10
+  graphic: {fileID: 3747337638802480929}
+  positiveAnsw: {fileID: 499861652}
+  negativeAnsw: {fileID: 102962791}
+  data: {fileID: 0}
 --- !u!1 &3747337638236000423
 GameObject:
   m_ObjectHideFlags: 0
