@@ -33,13 +33,15 @@ public class CardAnimator : MonoBehaviour
 
     }
 
-    public void Flip() {
+    public void Flip()
+    {
 
         animator.SetTrigger("Flip");
 
     }
 
-    public void OnFlipAnimationOver() {
+    public void OnFlipAnimationOver()
+    {
 
         IsFlipped = true;
         cardController.cardState = CardController.CardState.Idle;

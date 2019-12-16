@@ -2,7 +2,7 @@
 
 public class CardController : MonoBehaviour
 {
-    
+
     [HideInInspector]
     public CardData data;
 
@@ -18,9 +18,9 @@ public class CardController : MonoBehaviour
     public GameObject positiveAnsw;
     public GameObject negativeAnsw;
 
-    public event System.Action OnSwipeEnd;
-    public event System.Action OnSwipeLeft;
-    public event System.Action OnSwipeRight;
+    public event System.Action OnSwipeEnd = delegate { };
+    public event System.Action<int[]> OnSwipeLeft = delegate { };
+    public event System.Action<int[]> OnSwipeRight = delegate { };
 
     #region Private Vars
 
@@ -32,7 +32,8 @@ public class CardController : MonoBehaviour
 
     #endregion
 
-    public enum CardState {
+    public enum CardState
+    {
 
         Idle,
         Moving,
@@ -76,7 +77,8 @@ public class CardController : MonoBehaviour
     private void Update()
     {
 
-        switch (cardState) {
+        switch (cardState)
+        {
 
             case CardState.Idle:
 
@@ -87,7 +89,7 @@ public class CardController : MonoBehaviour
                     graphic.rotation = Quaternion.Lerp(graphic.rotation, Quaternion.Euler(0.0f, 0.0f, 0.0f), speed / 2 * Time.deltaTime);
 
                     CheckPosition();
-                    
+
                 }
                 else
                 {
@@ -108,7 +110,7 @@ public class CardController : MonoBehaviour
                 graphic.rotation = Quaternion.Lerp(graphic.rotation, Quaternion.Euler(0.0f, 0.0f, targetPos.x * -6), speed * Time.deltaTime);
 
                 CheckPosition();
-                
+
                 break;
 
             case CardState.Flipping:
@@ -130,7 +132,7 @@ public class CardController : MonoBehaviour
 
                     graphic.Rotate(new Vector3(0.0f, 0.0f, -4f));
                     graphic.Translate((Vector3.down + (Vector3.right * 0.5f)) * speed * 2.2f * Time.deltaTime, Space.World);
-                    
+
                 }
 
                 if (graphic.position.y < -8)
@@ -149,31 +151,46 @@ public class CardController : MonoBehaviour
         {
 
             if (!positiveAnsw.activeSelf)
+            {
+
+                OnSwipeLeft?.Invoke(data.cardData.positiveEffect);
                 positiveAnsw.SetActive(true);
 
-            OnSwipeLeft?.Invoke();
+            }
 
             return -1;
 
         }
-        else if (graphic.position.x > 0.5f) {
+        else if (graphic.position.x > 0.5f)
+        {
 
             if (!negativeAnsw.activeSelf)
-                negativeAnsw.SetActive(true);
+            {
 
-            OnSwipeRight?.Invoke();
+                OnSwipeRight?.Invoke(data.cardData.negativeEffect);
+                negativeAnsw.SetActive(true);
+                
+            }
 
             return 1;
 
         }
 
         if (positiveAnsw.activeSelf)
+        {
+
+            OnSwipeEnd?.Invoke();
             positiveAnsw.SetActive(false);
 
+        }
+
         if (negativeAnsw.activeSelf)
+        {
+
+            OnSwipeEnd?.Invoke();
             negativeAnsw.SetActive(false);
 
-        OnSwipeEnd?.Invoke();
+        }
 
         return 0;
 
@@ -189,13 +206,15 @@ public class CardController : MonoBehaviour
 
     }
 
-    public void DropCard() {
+    public void DropCard()
+    {
 
         cardState = CardState.Dropping;
 
     }
 
-    public void ResetCard() {
+    public void ResetCard()
+    {
 
         positiveAnsw.SetActive(false);
         negativeAnsw.SetActive(false);
@@ -206,6 +225,6 @@ public class CardController : MonoBehaviour
     }
 
     #endregion
-    
+
 
 }

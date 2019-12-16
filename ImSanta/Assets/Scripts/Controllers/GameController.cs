@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
 
     #region Private Vars
 
+    private int[] effectToApply;
+
     private InputMaster inputManager;
 
     private CardController activeCard;
@@ -32,7 +34,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
 
-        deckController = DeckController.instance;
+        
 
     }
 
@@ -51,14 +53,16 @@ public class GameController : MonoBehaviour
 
         inputManager.Gameplay.ActionP.performed -= ctx => ChooseAnswer();
         inputManager.Gameplay.Disable();
-        
+
         deckController.OnCardReturn -= ShowNewCard;
 
     }
 
-    public void ChooseAnswer() {
+    public void ChooseAnswer()
+    {
 
-        switch (activeCard.CheckPosition()) {
+        switch (activeCard.CheckPosition())
+        {
 
             case 0:
 
@@ -66,11 +70,17 @@ public class GameController : MonoBehaviour
 
             case 1:
 
+                StatsManager.instance.HideImpacts();
+                effectToApply = activeCard.data.cardData.negativeEffect;
+
                 activeCard.DropCard();
 
                 break;
 
             case -1:
+
+                StatsManager.instance.HideImpacts();
+                effectToApply = activeCard.data.cardData.positiveEffect;
 
                 activeCard.DropCard();
 
@@ -78,9 +88,14 @@ public class GameController : MonoBehaviour
 
         }
 
+        StatsManager.instance.HandleBelievers(effectToApply[0]);
+        StatsManager.instance.HandleWorkers(effectToApply[1]);
+        StatsManager.instance.HandleMoney(effectToApply[2]);
+
     }
 
-    public void ShowNewCard() {
+    public void ShowNewCard()
+    {
 
         activeCard = deckController.GetCard(Vector3.zero, Quaternion.identity);
         activeCard.FlipCard();

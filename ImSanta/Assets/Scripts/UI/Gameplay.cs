@@ -20,13 +20,15 @@ public class Gameplay : MonoBehaviour
 
     }
 
-    public void SetCardName(string value) {
+    public void SetCardName(string value)
+    {
 
         cardName.SetText(value);
 
     }
 
-    public void SetQuestion(string value) {
+    public void SetQuestion(string value)
+    {
 
         question.SetText(value);
 

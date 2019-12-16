@@ -13,7 +13,9 @@ public class DeckController : MonoBehaviour
 
     [Header("Card Settings: ")]
     public Card[] testCards;
-    public Queue<CardController> cards;
+
+    public CardController[] cards;
+    public Queue<CardController> cardsPool;
 
     public event System.Action OnCardReturn;
 
@@ -35,9 +37,41 @@ public class DeckController : MonoBehaviour
 
     private void Start()
     {
-        cards = new Queue<CardController>();
 
-        FillCardPool(2);
+        cardsPool = new Queue<CardController>();
+
+        for (int i = 0; i < cards.Length; i++) {
+            
+            cardsPool.Enqueue(cards[i]);
+            
+        }
+
+    }
+
+    private void OnEnable()
+    {
+
+        foreach (CardController card in cards) {
+
+            card.OnSwipeEnd += StatsManager.instance.HideImpacts;
+            card.OnSwipeLeft += StatsManager.instance.ShowImpacts;
+            card.OnSwipeRight += StatsManager.instance.ShowImpacts;
+
+        }
+
+    }
+
+    private void OnDisable()
+    {
+
+        foreach (CardController card in cards)
+        {
+
+            card.OnSwipeEnd -= StatsManager.instance.HideImpacts;
+            card.OnSwipeLeft -= StatsManager.instance.ShowImpacts;
+            card.OnSwipeRight -= StatsManager.instance.ShowImpacts;
+
+        }
 
     }
 
@@ -49,9 +83,10 @@ public class DeckController : MonoBehaviour
 
     }
 
-    public CardController GetCard(Vector3 position, Quaternion rotation) {
+    public CardController GetCard(Vector3 position, Quaternion rotation)
+    {
 
-        CardController cardToSpawn = cards.Dequeue();
+        CardController cardToSpawn = cardsPool.Dequeue();
 
         cardToSpawn.gameObject.SetActive(true);
 
@@ -67,29 +102,15 @@ public class DeckController : MonoBehaviour
 
     }
 
-    public void ReturnCard(CardController cardToReturn) {
+    public void ReturnCard(CardController cardToReturn)
+    {
 
         cardToReturn.gameObject.SetActive(false);
 
         cardToReturn.ResetCard();
-        cards.Enqueue(cardToReturn);
+        cardsPool.Enqueue(cardToReturn);
 
         OnCardReturn?.Invoke();
-
-    }    
-
-    private void FillCardPool(int amount) {
-
-        for (int i = 0; i < amount; i++) {
-
-            CardController cardToAdd = Instantiate(cardPrefab);
-
-            cardToAdd.transform.SetParent(cardHolder);
-            cardToAdd.gameObject.SetActive(false);
-
-            cards.Enqueue(cardToAdd);
-
-        }
 
     }
 

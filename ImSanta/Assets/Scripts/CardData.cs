@@ -26,18 +26,20 @@ public class CardData : MonoBehaviour
     private void Start()
     {
 
-        
+
 
     }
 
-    public void Set(Card data) {
+    public void Set(Card data)
+    {
 
         cardData = data;
         OnDataChanged();
 
     }
 
-    private void OnDataChanged() {
+    private void OnDataChanged()
+    {
 
         avatar.sprite = cardData.avatar;
 

@@ -19,6 +19,5 @@ MonoBehaviour:
   avatar: {fileID: 7237214118930686135, guid: 7871d32b2e24d704bb39420533b81646, type: 3}
   border1: {r: 0.5568628, g: 0.17254902, b: 0.16862746, a: 1}
   border2: {r: 0.21960786, g: 0.023529414, b: 0.015686275, a: 1}
-  _kids: 0
-  _elves: 0
-  _money: 0
+  positiveEffect: fbffffff0000000005000000
+  negativeEffect: 000000000500000000000000

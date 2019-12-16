@@ -20,7 +20,7 @@ public class Card : ScriptableObject
     public Color border2;
 
     [Header("Stats Effect:")]
-    public int[] positiveStats;
-    public int[] negativeStats;
+    public int[] positiveEffect = new int[3];
+    public int[] negativeEffect = new int[3];
 
 }
