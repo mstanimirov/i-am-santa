@@ -4,7 +4,7 @@ ScriptsOnlyBuild:
     - Card
     - CardAnimator
     - CardController
-    - CardData
+    - CardLoader
     - DeckController
     - GameController
     - Gameplay
@@ -29,8 +29,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -79,8 +81,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10018}
     - Class: 114
-      Script: {instanceID: 10430}
-    - Class: 114
       Script: {instanceID: 10480}
     - Class: 114
       Script: {instanceID: 10508}
@@ -89,25 +89,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10860}
     - Class: 114
-      Script: {instanceID: 11156}
+      Script: {instanceID: 11154}
     - Class: 114
-      Script: {instanceID: 11300}
+      Script: {instanceID: 11298}
     - Class: 114
-      Script: {instanceID: 11316}
+      Script: {instanceID: 11314}
     - Class: 114
-      Script: {instanceID: 11520}
+      Script: {instanceID: 11518}
     - Class: 114
-      Script: {instanceID: 11546}
+      Script: {instanceID: 11544}
     - Class: 114
-      Script: {instanceID: 11622}
+      Script: {instanceID: 11620}
     - Class: 114
-      Script: {instanceID: 11644}
+      Script: {instanceID: 11642}
     - Class: 114
-      Script: {instanceID: 11700}
+      Script: {instanceID: 11698}
     - Class: 114
-      Script: {instanceID: 11830}
+      Script: {instanceID: 11828}
     - Class: 114
-      Script: {instanceID: 11934}
+      Script: {instanceID: 11932}
+    - Class: 114
+      Script: {instanceID: 12054}
     - Class: 114
       Script: {instanceID: 12088}
     - Class: 114
@@ -333,12 +335,6 @@ ScriptsOnlyBuild:
     className: InputSystemUIInputModule
   - hash:
       serializedVersion: 2
-      Hash: f087171ac5f1d1359d0fb5e6575ccf97
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CardData
-  - hash:
-      serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -507,7 +503,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: bef48f23b0e96c13a0d35e5fbd2c0211
+      Hash: d2be1da4311fa9cdd0cfe43041ab5687
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DeckController
@@ -609,7 +605,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 84f75cb1b2b619c2be00b04cc83c1bfd
+      Hash: b0acfa456254cce74d39e9942130f70d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CardController
@@ -621,7 +617,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: efc967bf1347a550f421a6464787efae
+      Hash: 7e36bce428aacd69b7eccbf82459b017
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Card
@@ -691,6 +687,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMesh
+  - hash:
+      serializedVersion: 2
+      Hash: e6e506eefd57b08ce5165f765bc5b21f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CardLoader
   - hash:
       serializedVersion: 2
       Hash: 7090bc1e5ccaec2a9d0d1335ed8cee99

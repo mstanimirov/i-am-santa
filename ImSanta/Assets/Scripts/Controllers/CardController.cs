@@ -4,9 +4,6 @@ public class CardController : MonoBehaviour
 {
 
     [HideInInspector]
-    public CardData data;
-
-    [HideInInspector]
     public CardState cardState;
 
     [Header("General Settings:")]
@@ -28,7 +25,16 @@ public class CardController : MonoBehaviour
     private Vector3 targetPos;
     private Vector3 initialPos;
 
+    private CardLoader cardLoader;
     private CardAnimator cardAnimator;
+
+    #endregion
+
+    #region Getters/Setters
+
+    public Card GetCardVisuals { get; private set; }
+
+    public CardData GetCardData { get; private set; }
 
     #endregion
 
@@ -45,7 +51,7 @@ public class CardController : MonoBehaviour
     private void Awake()
     {
 
-        data = GetComponent<CardData>();
+        cardLoader = GetComponent<CardLoader>();
         cardAnimator = GetComponent<CardAnimator>();
 
     }
@@ -153,7 +159,7 @@ public class CardController : MonoBehaviour
             if (!positiveAnsw.activeSelf)
             {
 
-                OnSwipeLeft?.Invoke(data.cardData.positiveEffect);
+                OnSwipeLeft?.Invoke(GetCardData.negativeEffects);
                 positiveAnsw.SetActive(true);
 
             }
@@ -167,7 +173,7 @@ public class CardController : MonoBehaviour
             if (!negativeAnsw.activeSelf)
             {
 
-                OnSwipeRight?.Invoke(data.cardData.negativeEffect);
+                OnSwipeRight?.Invoke(GetCardData.positiveEffects);
                 negativeAnsw.SetActive(true);
                 
             }
@@ -219,8 +225,20 @@ public class CardController : MonoBehaviour
         positiveAnsw.SetActive(false);
         negativeAnsw.SetActive(false);
 
+        cardState = CardState.Flipping;
+
         graphic.transform.position = initialPos;
         graphic.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+
+    }
+
+    public void SetupCard(Card visuals, CardData cardData) {
+
+        GetCardData = cardData;
+        GetCardVisuals = visuals;
+
+        cardLoader.LoadInfo(GetCardData);
+        cardLoader.LoadVisuals(GetCardVisuals);
 
     }
 

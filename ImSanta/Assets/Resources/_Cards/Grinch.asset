@@ -12,12 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae1b3dc0abcebf46b56db3ad45ed4d4, type: 3}
   m_Name: Grinch
   m_EditorClassIdentifier: 
+  id: 2
   _name: Grinch
-  question: Ipsum Lorem
-  positiveAnswer: Yeah...
-  negativeAnswer: Yeah...
   avatar: {fileID: -4556204826488232844, guid: 7871d32b2e24d704bb39420533b81646, type: 3}
   border1: {r: 0.5568628, g: 0.17254902, b: 0.16862746, a: 1}
   border2: {r: 0.21960786, g: 0.023529414, b: 0.015686275, a: 1}
-  positiveEffect: f6fffffffbffffff00000000
-  negativeEffect: 00000000000000000a000000

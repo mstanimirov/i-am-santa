@@ -12,8 +12,9 @@ public class DeckController : MonoBehaviour
     public CardController cardPrefab;
 
     [Header("Card Settings: ")]
-    public Card[] testCards;
+    public Card[] cardVisuals;
 
+    [Header("Object References:")]
     public CardController[] cards;
     public Queue<CardController> cardsPool;
 
@@ -22,6 +23,8 @@ public class DeckController : MonoBehaviour
     #region Private Vars
 
     private int previousIndex = 0;
+
+    private CardBags cardBags = new CardBags();
 
     #endregion
 
@@ -40,11 +43,14 @@ public class DeckController : MonoBehaviour
 
         cardsPool = new Queue<CardController>();
 
-        for (int i = 0; i < cards.Length; i++) {
-            
+        for (int i = 0; i < cards.Length; i++)
+        {
+
             cardsPool.Enqueue(cards[i]);
-            
+
         }
+
+        LoadCardsBag();
 
     }
 
@@ -54,8 +60,8 @@ public class DeckController : MonoBehaviour
         foreach (CardController card in cards) {
 
             card.OnSwipeEnd += StatsManager.instance.HideImpacts;
-            card.OnSwipeLeft += StatsManager.instance.ShowImpacts;
-            card.OnSwipeRight += StatsManager.instance.ShowImpacts;
+            card.OnSwipeLeft += StatsManager.instance.HandleImpacts;
+            card.OnSwipeRight += StatsManager.instance.HandleImpacts;
 
         }
 
@@ -68,8 +74,8 @@ public class DeckController : MonoBehaviour
         {
 
             card.OnSwipeEnd -= StatsManager.instance.HideImpacts;
-            card.OnSwipeLeft -= StatsManager.instance.ShowImpacts;
-            card.OnSwipeRight -= StatsManager.instance.ShowImpacts;
+            card.OnSwipeLeft -= StatsManager.instance.HandleImpacts;
+            card.OnSwipeRight -= StatsManager.instance.HandleImpacts;
 
         }
 
@@ -78,7 +84,6 @@ public class DeckController : MonoBehaviour
     public void ShowFirstCard()
     {
 
-        //Animation event function
         GameController.instance.ShowNewCard();
 
     }
@@ -93,10 +98,10 @@ public class DeckController : MonoBehaviour
         cardToSpawn.transform.rotation = rotation;
         cardToSpawn.transform.localPosition = position;
 
-        cardToSpawn.data.Set(GetData());
+        cardToSpawn.SetupCard(GetVisuals(), GetInfo());
 
-        Gameplay.instance.SetCardName(cardToSpawn.data.GetName());
-        Gameplay.instance.SetQuestion(cardToSpawn.data.GetQuestion());
+        Gameplay.instance.SetCardName(cardToSpawn.GetCardData.name);
+        Gameplay.instance.SetQuestion(cardToSpawn.GetCardData.question);
 
         return cardToSpawn;
 
@@ -114,17 +119,55 @@ public class DeckController : MonoBehaviour
 
     }
 
-    private Card GetData()
-    {
+    private CardData GetInfo() {
 
-        int newIndex = Random.Range(0, testCards.Length);
+        switch (previousIndex) {
+
+            case 0:
+
+                return cardBags.ElfBag[0];
+
+            case 1:
+
+                return cardBags.DeerBag[0];
+
+            case 2:
+
+                return cardBags.GrinchBag[0];
+
+            case 3:
+
+                return cardBags.KrampusBag[0];
+
+
+        }
+
+        return null;   
+
+    }
+
+    private Card GetVisuals()
+    {
+        int newIndex = Random.Range(0, cardVisuals.Length);
 
         while (newIndex == previousIndex)
-            newIndex = Random.Range(0, testCards.Length);
+            newIndex = Random.Range(0, cardVisuals.Length);
 
         previousIndex = newIndex;
 
-        return testCards[previousIndex];
+        return cardVisuals[previousIndex];
+
+    }
+
+    private void LoadCardsBag()
+    {
+
+        TextAsset asset = Resources.Load<TextAsset>("BagBalanced");
+
+        if (asset != null)
+            cardBags = JsonUtility.FromJson<CardBags>(asset.text);
+        else
+            Debug.Log("no asset loaded");
 
     }
 

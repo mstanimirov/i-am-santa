@@ -1,0 +1,119 @@
+{
+
+	"ElfBag":
+	[
+	
+		{
+		
+			"name" : "elf",
+			"question" : "works!",
+			
+			"positiveAnswer" : "yes",
+			"negativeAnswer" : "no",
+			
+			"positiveEffects" :
+			[
+			
+				10, 0, 0
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				-10, 0, 0
+			
+			]
+		
+		}
+	
+	],
+	
+	"DeerBag":
+	[
+	
+		{
+		
+			"name" : "elf",
+			"question" : "works!",
+			
+			"positiveAnswer" : "yes",
+			"negativeAnswer" : "no",
+			
+			"positiveEffects" :
+			[
+			
+				0, 10, 0
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				0, 10, 0
+			
+			]
+		
+		}
+	
+	],
+	
+	"GrinchBag":
+	[
+	
+		{
+		
+			"name" : "elf",
+			"question" : "works!",
+			
+			"positiveAnswer" : "yes",
+			"negativeAnswer" : "no",
+			
+			"positiveEffects" :
+			[
+			
+				0, 0, 10
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				0, 0, 10
+			
+			]
+		
+		}
+	
+	],
+	
+	"KrampusBag":
+	[
+	
+		{
+		
+			"name" : "elf",
+			"question" : "works!",
+			
+			"positiveAnswer" : "yes",
+			"negativeAnswer" : "no",
+			
+			"positiveEffects" :
+			[
+			
+				0, 5, 0
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				5, 0, 0
+			
+			]
+		
+		}
+	
+	]
+	
+}

@@ -40,19 +40,20 @@ public class StatsManager : MonoBehaviour
 
     }
 
-    public void ShowImpacts(int[] impact) {
-
-        believersUI.ShowImapct(impact[0]);
-        workersUI.ShowImapct(impact[1]);
-        moneyUI.ShowImapct(impact[2]);
-
-    }
-
     public void HideImpacts() {
 
         believersUI.HideImpact();
         workersUI.HideImpact();
         moneyUI.HideImpact();
+
+    }
+
+    public void HandleImpacts(int[] impact)
+    {
+
+        believersUI.ShowImapct(impact[0]);
+        workersUI.ShowImapct(impact[1]);
+        moneyUI.ShowImapct(impact[2]);
 
     }
 

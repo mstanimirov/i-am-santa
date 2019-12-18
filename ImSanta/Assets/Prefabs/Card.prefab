@@ -1418,7 +1418,7 @@ GameObject:
   - component: {fileID: 3875666559281648185}
   - component: {fileID: 1326379836}
   - component: {fileID: 564459010785393597}
-  - component: {fileID: 2104461034349136605}
+  - component: {fileID: 2149114527809079906}
   - component: {fileID: 6452461676452609171}
   - component: {fileID: 1326379835}
   m_Layer: 0
@@ -1515,7 +1515,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 14, y: 12}
   m_EdgeRadius: 0
---- !u!114 &2104461034349136605
+--- !u!114 &2149114527809079906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1524,15 +1524,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3747337637817959717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7012a884218a50944b45159ddd003636, type: 3}
+  m_Script: {fileID: 11500000, guid: dc9eda0f3f9d7b5468371281b2e4f222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 0}
+  nameUI: {fileID: 0}
+  positiveTextUI: {fileID: 1310618626}
+  negativeTextUI: {fileID: 2111001549}
   avatar: {fileID: 3747337638236000421}
-  borderSprite1: {fileID: 3747337637527175269}
-  borderSprite2: {fileID: 3747337639047233037}
-  positiveAnswer: {fileID: 1310618626}
-  negativeAnswer: {fileID: 2111001549}
+  borderBgr: {fileID: 3747337637527175269}
+  borderFgr: {fileID: 3747337639047233037}
 --- !u!114 &6452461676452609171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1562,7 +1562,6 @@ MonoBehaviour:
   graphic: {fileID: 3747337638802480929}
   positiveAnsw: {fileID: 499861652}
   negativeAnsw: {fileID: 102962791}
-  data: {fileID: 0}
 --- !u!1 &3747337638236000423
 GameObject:
   m_ObjectHideFlags: 0

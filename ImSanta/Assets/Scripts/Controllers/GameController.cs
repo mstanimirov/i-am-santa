@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 
     #region Private Vars
 
-    private int[] effectToApply;
+    private int[] statsToApply;
 
     private InputMaster inputManager;
 
@@ -70,27 +70,27 @@ public class GameController : MonoBehaviour
 
             case 1:
 
-                StatsManager.instance.HideImpacts();
-                effectToApply = activeCard.data.cardData.negativeEffect;
-
                 activeCard.DropCard();
 
+                statsToApply = activeCard.GetCardData.positiveEffects;
+                
                 break;
 
             case -1:
 
-                StatsManager.instance.HideImpacts();
-                effectToApply = activeCard.data.cardData.positiveEffect;
-
                 activeCard.DropCard();
+
+                statsToApply = activeCard.GetCardData.negativeEffects;
 
                 break;
 
         }
 
-        StatsManager.instance.HandleBelievers(effectToApply[0]);
-        StatsManager.instance.HandleWorkers(effectToApply[1]);
-        StatsManager.instance.HandleMoney(effectToApply[2]);
+        StatsManager.instance.HideImpacts();
+
+        StatsManager.instance.HandleBelievers(statsToApply[0]);
+        StatsManager.instance.HandleWorkers(statsToApply[1]);
+        StatsManager.instance.HandleMoney(statsToApply[2]);
 
     }
 
