@@ -5,9 +5,7 @@ using UnityEngine;
 public class CardBags
 {
 
-    public List<CardData> ElfBag = new List<CardData>();
-    public List<CardData> DeerBag = new List<CardData>();
-    public List<CardData> GrinchBag = new List<CardData>();
-    public List<CardData> KrampusBag = new List<CardData>();
+    public List<CardData> KidsBag = new List<CardData>();
+    public List<CardData> ManagersBag = new List<CardData>();
 
 }

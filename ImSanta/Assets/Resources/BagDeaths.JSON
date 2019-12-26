@@ -1,0 +1,253 @@
+{
+
+	"KidsBag":
+	[
+	
+		{
+		
+			"index" : 5,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Girl",
+			"question" : "Question!",
+			
+			"positiveAnswer" : "Nice",
+			"negativeAnswer" : "Naughty",
+			
+			"specialEffect" : 0,
+
+			"positiveEffects" :
+			[
+			
+				10, 0, -5
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				-10, 0, 5
+			
+			]
+		
+		},
+
+		{
+		
+			"index" : 4,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Boy",
+			"question" : "Question",
+			
+			"positiveAnswer" : "Nice",
+			"negativeAnswer" : "Naughty",
+			
+			"specialEffect" : 0,
+
+			"positiveEffects" :
+			[
+			
+				10, 0, -5
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				-10, 0, 5
+			
+			]
+		
+		}
+	
+	],
+	
+	"ManagersBag":
+	[
+	
+		{
+		
+			"index" : 2,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Grinch",
+			"question" : "Kids no longer believe in Santa!",
+			
+			"positiveAnswer" : "What...",
+			"negativeAnswer" : "What...",
+			
+			"specialEffect" : 1,
+
+			"positiveEffects" :
+			[
+			
+				-100, -100, -100
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				-100, -100, -100
+			
+			]
+		
+		},
+
+		{
+		
+			"index" : 6,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Santa",
+			"question" : "So many kids believe in Santa, that you can't keep with delivering present and close the factory",
+			
+			"positiveAnswer" : "What...",
+			"negativeAnswer" : "What...",
+			
+			"specialEffect" : 1,
+
+			"positiveEffects" :
+			[
+			
+				-100, -100, -100
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				-100, -100, -100
+			
+			]
+		
+		},
+	
+		{
+		
+			"index" : 0,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Elf",
+			"question" : "You can't make all these presents by yourself!",
+			
+			"positiveAnswer" : "What...",
+			"negativeAnswer" : "What...",
+			
+			"specialEffect" : 1,
+
+			"positiveEffects" :
+			[
+			
+				-100, -100, -100
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				-100, -100, -100
+			
+			]
+		
+		},
+
+		{
+		
+			"index" : 0,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Elf",
+			"question" : "Too much elves. You can't afford that!",
+			
+			"positiveAnswer" : "What...",
+			"negativeAnswer" : "What...",
+			
+			"specialEffect" : 1,
+
+			"positiveEffects" :
+			[
+			
+				-100, -100, -100
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				-100, -100, -100
+			
+			]
+		
+		},
+
+		{
+		
+			"index" : 6,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Santa",
+			"question" : "With no money to support gift production you close the factory!",
+			
+			"positiveAnswer" : "What...",
+			"negativeAnswer" : "What...",
+			
+			"specialEffect" : 1,
+
+			"positiveEffects" :
+			[
+			
+				-100, -100, -100
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				-100, -100, -100
+			
+			]
+		
+		},
+
+		{
+		
+			"index" : 6,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Santa",
+			"question" : "With so much money you drown in luxury and forget about the kids!",
+			
+			"positiveAnswer" : "What...",
+			"negativeAnswer" : "What...",
+			
+			"specialEffect" : 1,
+
+			"positiveEffects" :
+			[
+			
+				-100, -100, -100
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				-100, -100, -100
+			
+			]
+		
+		}
+
+	]
+	
+}

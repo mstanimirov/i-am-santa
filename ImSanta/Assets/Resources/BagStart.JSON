@@ -1,0 +1,193 @@
+{
+
+	"KidsBag":
+	[
+	
+		{
+		
+			"index" : 5,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Samantha, 7 years",
+			"question" : "Helped her parents with shopping, wants a real pony.",
+			
+			"positiveAnswer" : "Nice",
+			"negativeAnswer" : "Naughty",
+			
+			"specialEffect" : 0,
+
+			"positiveEffects" :
+			[
+			
+				10, 0, 0
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				-10, 0, 0
+			
+			]
+		
+		},
+
+		{
+		
+			"index" : 4,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Jimmy, 10 years",
+			"question" : "Threw a stone at his friend, wants a toy car.",
+			
+			"positiveAnswer" : "Nice",
+			"negativeAnswer" : "Naughty",
+			
+			"specialEffect" : 0,
+
+			"positiveEffects" :
+			[
+			
+				-10, 0, -5
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				10, 0, 0
+			
+			]
+		
+		}
+	
+	],
+	
+	"ManagersBag":
+	[
+	
+		{
+		
+			"index" : 0,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Elf",
+			"question" : "Question",
+			
+			"positiveAnswer" : "Yes",
+			"negativeAnswer" : "No",
+			
+			"specialEffect" : 0,
+
+			"positiveEffects" :
+			[
+			
+				0, 5, 0
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				0, -5, 0
+			
+			]
+		
+		},
+
+		{
+		
+			"index" : 1,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Deer",
+			"question" : "Question",
+			
+			"positiveAnswer" : "Yes",
+			"negativeAnswer" : "No",
+			
+			"specialEffect" : 0,
+
+			"positiveEffects" :
+			[
+			
+				0, 10, 0
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				0, 10, 0
+			
+			]
+		
+		},
+
+		{
+		
+			"index" : 2,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Grinch",
+			"question" : "Question",
+			
+			"positiveAnswer" : "Yes",
+			"negativeAnswer" : "No",
+			
+			"specialEffect" : 0,
+
+			"positiveEffects" :
+			[
+			
+				5, 0, 0
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				-10, 0, 0
+			
+			]
+		
+		},
+
+		{
+		
+			"index" : 3,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 0,
+
+			"name" : "Krampus",
+			"question" : "Should we increase coal production?",
+			
+			"positiveAnswer" : "Yes",
+			"negativeAnswer" : "No",
+			
+			"specialEffect" : 0,
+
+			"positiveEffects" :
+			[
+			
+				0, 0, -10
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				0, 0, 5
+			
+			]
+		
+		}
+
+	]
+	
+}

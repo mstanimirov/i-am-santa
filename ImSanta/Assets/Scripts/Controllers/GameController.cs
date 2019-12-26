@@ -1,15 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
 
     public static GameController instance;
 
+    public GameState gameState;
+
+    public enum GameState {
+
+        Gameplay,
+        Gameover
+
+    }
+
     #region Private Vars
 
-    private int[] statsToApply;
+    private int effectCode;
+    private int[] statsToApply = new int[3];
 
     private InputMaster inputManager;
 
@@ -28,13 +39,13 @@ public class GameController : MonoBehaviour
 
         inputManager = new InputMaster();
         deckController = FindObjectOfType<DeckController>();
-
+        
     }
 
     private void Start()
     {
 
-        
+
 
     }
 
@@ -61,6 +72,16 @@ public class GameController : MonoBehaviour
     public void ChooseAnswer()
     {
 
+        if (gameState == GameState.Gameover) {
+
+            if (GameManager.instance)
+                GameManager.instance.RestartGame();
+
+        }
+
+        if (activeCard.cardState != CardController.CardState.Moving)
+            return;
+
         switch (activeCard.CheckPosition())
         {
 
@@ -72,7 +93,7 @@ public class GameController : MonoBehaviour
 
                 activeCard.DropCard();
 
-                statsToApply = activeCard.GetCardData.positiveEffects;
+                statsToApply = activeCard.GetCardData.negativeEffects;
                 
                 break;
 
@@ -80,7 +101,22 @@ public class GameController : MonoBehaviour
 
                 activeCard.DropCard();
 
-                statsToApply = activeCard.GetCardData.negativeEffects;
+                statsToApply = activeCard.GetCardData.positiveEffects;
+
+                break;
+
+        }
+
+        switch (activeCard.GetCardData.specialEffect) {
+
+            case 0:
+
+
+                break;
+
+            case 1:
+
+                gameState = GameState.Gameover;
 
                 break;
 
@@ -96,6 +132,9 @@ public class GameController : MonoBehaviour
 
     public void ShowNewCard()
     {
+
+        if (gameState != GameState.Gameplay)
+            return;
 
         activeCard = deckController.GetCard(Vector3.zero, Quaternion.identity);
         activeCard.FlipCard();

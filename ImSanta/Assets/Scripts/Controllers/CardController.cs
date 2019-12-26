@@ -159,7 +159,7 @@ public class CardController : MonoBehaviour
             if (!positiveAnsw.activeSelf)
             {
 
-                OnSwipeLeft?.Invoke(GetCardData.negativeEffects);
+                OnSwipeLeft?.Invoke(GetCardData.positiveEffects);
                 positiveAnsw.SetActive(true);
 
             }
@@ -173,7 +173,7 @@ public class CardController : MonoBehaviour
             if (!negativeAnsw.activeSelf)
             {
 
-                OnSwipeRight?.Invoke(GetCardData.positiveEffects);
+                OnSwipeRight?.Invoke(GetCardData.negativeEffects);
                 negativeAnsw.SetActive(true);
                 
             }
@@ -209,6 +209,8 @@ public class CardController : MonoBehaviour
 
         cardAnimator.Flip();
         cardState = CardState.Flipping;
+        GameManager.instance.audioManager.PlaySound("CardDrop");
+        GameManager.instance.audioManager.PlaySound("Hmm" + GetCardData.index);
 
     }
 
@@ -216,6 +218,7 @@ public class CardController : MonoBehaviour
     {
 
         cardState = CardState.Dropping;
+        GameManager.instance.audioManager.PlaySound("CardDrop2");
 
     }
 

@@ -61,7 +61,10 @@ public class StatsManager : MonoBehaviour
 
         if (amount != 0) {
 
-            believers += amount;
+            if (believers + amount < 100)
+                believers += amount;
+            else
+                believers = 100;
 
             float statPercentage = believers / 100.0f;
             believersUI.HandleStatChanged(statPercentage);
@@ -74,7 +77,10 @@ public class StatsManager : MonoBehaviour
 
         if (amount != 0) {
 
-            workers += amount;
+            if (workers + amount < 100)
+                workers += amount;
+            else
+                workers = 100;
 
             float statPercentage = workers / 100.0f;
             workersUI.HandleStatChanged(statPercentage);
@@ -87,7 +93,10 @@ public class StatsManager : MonoBehaviour
 
         if (amount != 0) {
 
-            money += amount;
+            if (money + amount < 100)
+                money += amount;
+            else
+                money = 100;
 
             float statPercentage = money / 100.0f;
             moneyUI.HandleStatChanged(statPercentage);

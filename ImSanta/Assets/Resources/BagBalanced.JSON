@@ -5,8 +5,40 @@
 	
 		{
 		
-			"name" : "elf",
+			"index" : 0,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 10,
+
+			"name" : "Elf",
 			"question" : "works!",
+			
+			"positiveAnswer" : "yes",
+			"negativeAnswer" : "no",
+			
+			"positiveEffects" :
+			[
+			
+				10, 0, 0
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				-10, 0, 0
+			
+			]
+		
+		},
+
+		{
+		
+			"index" : 0,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 10,
+
+			"name" : "Elf",
+			"question" : "works 2",
 			
 			"positiveAnswer" : "yes",
 			"negativeAnswer" : "no",
@@ -34,7 +66,11 @@
 	
 		{
 		
-			"name" : "elf",
+			"index" : 1,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 10,
+
+			"name" : "Deer",
 			"question" : "works!",
 			
 			"positiveAnswer" : "yes",
@@ -54,16 +90,48 @@
 			
 			]
 		
-		}
+		},
 	
+		{
+
+			"index" : 1,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 10,
+		
+			"name" : "Deer",
+			"question" : "works 2",
+			
+			"positiveAnswer" : "yes",
+			"negativeAnswer" : "no",
+			
+			"positiveEffects" :
+			[
+			
+				0, 10, 0
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				0, 10, 0
+			
+			]
+		
+		}
+
 	],
 	
 	"GrinchBag":
 	[
 	
 		{
+
+			"index" : 2,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 10,
 		
-			"name" : "elf",
+			"name" : "Grinch",
 			"question" : "works!",
 			
 			"positiveAnswer" : "yes",
@@ -83,8 +151,36 @@
 			
 			]
 		
-		}
+		},
 	
+		{
+		
+			"index" : 2,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 10,
+
+			"name" : "Grinch",
+			"question" : "works 2",
+			
+			"positiveAnswer" : "yes",
+			"negativeAnswer" : "no",
+			
+			"positiveEffects" :
+			[
+			
+				0, 0, 10
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				0, 0, 10
+			
+			]
+		
+		}
+
 	],
 	
 	"KrampusBag":
@@ -92,7 +188,11 @@
 	
 		{
 		
-			"name" : "elf",
+			"index" : 3,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 10,
+
+			"name" : "Krampus",
 			"question" : "works!",
 			
 			"positiveAnswer" : "yes",
@@ -112,8 +212,36 @@
 			
 			]
 		
-		}
+		},
 	
+		{
+		
+			"index" : 3,
+			"lastPlayedAt" : 0,
+			"turnToShowAgain" : 10,
+
+			"name" : "Krampus",
+			"question" : "works 2",
+			
+			"positiveAnswer" : "yes",
+			"negativeAnswer" : "no",
+			
+			"positiveEffects" :
+			[
+			
+				0, 5, 0
+			
+			],
+			
+			"negativeEffects" :
+			[
+			
+				5, 0, 0
+			
+			]
+		
+		}
+
 	]
 	
 }

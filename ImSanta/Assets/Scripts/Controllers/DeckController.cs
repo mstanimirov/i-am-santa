@@ -23,6 +23,7 @@ public class DeckController : MonoBehaviour
     #region Private Vars
 
     private int previousIndex = 0;
+    private int cardsPlayedTotal = 0;
 
     private CardBags cardBags = new CardBags();
 
@@ -50,14 +51,16 @@ public class DeckController : MonoBehaviour
 
         }
 
-        LoadCardsBag();
+        LoadCardsBag("BagStart");
+        GameManager.instance.audioManager.PlaySound("CardDeal");
 
     }
 
     private void OnEnable()
     {
 
-        foreach (CardController card in cards) {
+        foreach (CardController card in cards)
+        {
 
             card.OnSwipeEnd += StatsManager.instance.HideImpacts;
             card.OnSwipeLeft += StatsManager.instance.HandleImpacts;
@@ -98,7 +101,8 @@ public class DeckController : MonoBehaviour
         cardToSpawn.transform.rotation = rotation;
         cardToSpawn.transform.localPosition = position;
 
-        cardToSpawn.SetupCard(GetVisuals(), GetInfo());
+        CardData cardData = GetInfo();
+        cardToSpawn.SetupCard(cardVisuals[cardData.index], cardData);
 
         Gameplay.instance.SetCardName(cardToSpawn.GetCardData.name);
         Gameplay.instance.SetQuestion(cardToSpawn.GetCardData.question);
@@ -115,54 +119,87 @@ public class DeckController : MonoBehaviour
         cardToReturn.ResetCard();
         cardsPool.Enqueue(cardToReturn);
 
+        cardsPlayedTotal++;
+
         OnCardReturn?.Invoke();
 
     }
 
-    private CardData GetInfo() {
+    private CardData GetInfo()
+    {
 
-        switch (previousIndex) {
+        List<CardData> currentList = new List<CardData>();
 
-            case 0:
+        if (StatsManager.instance.believers <= 0)
+        {
 
-                return cardBags.ElfBag[0];
+            LoadCardsBag("BagDeaths");
+            currentList = cardBags.ManagersBag;
 
-            case 1:
+            return currentList[0];
 
-                return cardBags.DeerBag[0];
+        }
+        else if (StatsManager.instance.believers >= 100) {
 
-            case 2:
+            LoadCardsBag("BagDeaths");
+            currentList = cardBags.ManagersBag;
 
-                return cardBags.GrinchBag[0];
+            return currentList[1];
 
-            case 3:
+        }
+        if (StatsManager.instance.workers <= 0)
+        {
 
-                return cardBags.KrampusBag[0];
+            LoadCardsBag("BagDeaths");
+            currentList = cardBags.ManagersBag;
 
+            return currentList[2];
+
+        }
+        else if (StatsManager.instance.workers >= 100)
+        {
+
+            LoadCardsBag("BagDeaths");
+            currentList = cardBags.ManagersBag;
+
+            return currentList[3];
+
+        }
+        if (StatsManager.instance.money <= 0)
+        {
+
+            LoadCardsBag("BagDeaths");
+            currentList = cardBags.ManagersBag;
+
+            return currentList[4];
+
+        }
+        else if (StatsManager.instance.money >= 100)
+        {
+
+            LoadCardsBag("BagDeaths");
+            currentList = cardBags.ManagersBag;
+
+            return currentList[5];
 
         }
 
-        return null;   
+        if (cardsPlayedTotal % 3 == 0 && cardsPlayedTotal != 0)
+            currentList = cardBags.KidsBag;
+        else
+            currentList = cardBags.ManagersBag;
+
+        if (currentList != null)
+            return currentList[Random.Range(0, currentList.Count)];
+
+        return null;
 
     }
 
-    private Card GetVisuals()
-    {
-        int newIndex = Random.Range(0, cardVisuals.Length);
-
-        while (newIndex == previousIndex)
-            newIndex = Random.Range(0, cardVisuals.Length);
-
-        previousIndex = newIndex;
-
-        return cardVisuals[previousIndex];
-
-    }
-
-    private void LoadCardsBag()
+    private void LoadCardsBag(string bagName)
     {
 
-        TextAsset asset = Resources.Load<TextAsset>("BagBalanced");
+        TextAsset asset = Resources.Load<TextAsset>(bagName);
 
         if (asset != null)
             cardBags = JsonUtility.FromJson<CardBags>(asset.text);
